@@ -1,0 +1,20 @@
+@import url("../../App.css");
+.banner {
+  background: #0b0062b4 url("./header.jpg") no-repeat fixed top center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  min-height: 600px;
+}
+/* covid */
+#covid {
+  margin-top: -5rem;
+  background: var(--light);
+  box-shadow: var(--shadow);
+}
+.covid-icon {
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 1000px;
+  transform: translate(-50%, -100%);
+  left: 50%;
+}

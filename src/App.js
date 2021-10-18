@@ -1,10 +1,16 @@
 import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
+import Home from "./Pages/Home/Home";
+import Header from "./Shared/Header";
 function App() {
   return (
-    <div className="App-header">
-      <h1 className="App-header">Hi react.js</h1>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 export default App;

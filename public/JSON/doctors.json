@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Yusuf Karim",
+    "degree": ["MBBS", "FCPS", "BCS", "MS"],
+    "about": "Hello. I am Yusuf Karim. I am ready to help you to overcome your health problems. Our team is 24h ready to serve you better care",
+    "img": "/Images/Doctors/doctor1.jpg"
+  },
+  {
+    "name": "Donald Deko",
+    "degree": ["MBBS", "FCPS", "BCS", "MD"],
+    "about": "Hello. I am Donald Deko. I am ready to help you to overcome your health problems. Our team is 24h ready to serve you better care",
+    "img": "/Images/Doctors/doctor2.jpg"
+  },
+  {
+    "name": "Kabib",
+    "degree": ["MBBS", "FCPS", "BCS", "MS"],
+    "about": "Hello. I am Kabib. I am ready to help you to overcome your health problems. Our team is 24h ready to serve you better care",
+    "img": "/Images/Doctors/doctor3.jpg"
+  }
+]
