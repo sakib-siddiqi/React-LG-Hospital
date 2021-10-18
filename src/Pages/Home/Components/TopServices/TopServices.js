@@ -14,7 +14,7 @@ const TopServices = () => {
       <Title className="text-dark fw-bold ls-1 mt-5" title="Services">
         <IoDiamond />
       </Title>
-      <Row xm={12} md={2} lg={3} className="g-5 mb-5 mt-1">
+      <Row xs={1} md={2} lg={3} className="g-4 mb-5 mt-1">
         {services.length ? (
           <>
             {services.slice(0, 6).map((service) => (

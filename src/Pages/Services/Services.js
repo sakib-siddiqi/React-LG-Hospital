@@ -16,13 +16,11 @@ const Services = () => {
       </Title>
 
       {services.length ? (
-        <>
-          <Row xm={12} md={2} lg={3} className="g-5 mb-5 mt-1">
-            {services.map((service) => (
-              <ServiceCard service={service} />
-            ))}
-          </Row>
-        </>
+        <Row xs={1} md={2} lg={3} className="g-4 mb-5 mt-1">
+          {services.map((service) => (
+            <ServiceCard service={service} />
+          ))}
+        </Row>
       ) : (
         <h2 className="text-center mt-4 text-primary">Loading...</h2>
       )}

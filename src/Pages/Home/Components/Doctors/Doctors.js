@@ -12,7 +12,7 @@ const Doctors = () => {
       <Title className="text-dark fw-bold ls-1 mt-5" title="Doctors">
         <FaClinicMedical />
       </Title>
-      <Row xm={12} md={2} lg={3} className="g-5 mb-5 mt-1">
+      <Row xs={1} md={2} lg={3} className="g-4 mb-5 mt-1">
         {doctors.length ? (
           <>
             {doctors.map((doctor) => (
