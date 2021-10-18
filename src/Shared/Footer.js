@@ -8,7 +8,7 @@ const Footer = () => {
       <Container className="pt-4">
         <Row xs={1} md={2} lg={3} className="g-4">
           <Col>
-            <Link exact to="/">
+            <Link to="/">
               <img src="/logo2.png" alt="logo2.png" />
             </Link>
           </Col>

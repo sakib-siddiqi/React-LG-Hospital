@@ -16,7 +16,7 @@ const Doctors = () => {
         {doctors.length ? (
           <>
             {doctors.map((doctor) => (
-              <DoctorCard doctor={doctor} />
+              <DoctorCard doctor={doctor} key={doctor.id} />
             ))}
           </>
         ) : (

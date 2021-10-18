@@ -15,6 +15,7 @@ const DoctorCard = ({ doctor }) => {
                 <span
                   className=" px-2 rounded-pill btn-outline-primary me-2 ls-1"
                   style={{ fontSize: "12px" }}
+                  key={deg}
                 >
                   {deg}
                 </span>

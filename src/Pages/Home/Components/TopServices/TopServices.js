@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const TopServices = () => {
   const { services } = useServices();
-  console.log(services);
   return (
     <Container className="my-5">
       <Title className="text-dark fw-bold ls-1 mt-5" title="Services">
@@ -18,7 +17,7 @@ const TopServices = () => {
         {services.length ? (
           <>
             {services.slice(0, 6).map((service) => (
-              <ServiceCard service={service} />
+              <ServiceCard service={service} key={service.id} />
             ))}
           </>
         ) : (

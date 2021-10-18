@@ -8,7 +8,6 @@ import ServiceCard from "../Home/Components/TopServices/ServiceCard";
 
 const Services = () => {
   const { services } = useServices();
-  console.log(services);
   return (
     <Container className="my-5">
       <Title className="text-dark fw-bold ls-1" title="Services">
@@ -18,14 +17,14 @@ const Services = () => {
       {services.length ? (
         <Row xs={1} md={2} lg={3} className="g-4 mb-5 mt-1">
           {services.map((service) => (
-            <ServiceCard service={service} />
+            <ServiceCard service={service} key={service.id} />
           ))}
         </Row>
       ) : (
         <h2 className="text-center mt-4 text-primary">Loading...</h2>
       )}
       <div className="text-center">
-        <Link exact to="/">
+        <Link to="/">
           <button className="btn-primary py-2 px-4 rounded-3 shadow mt-4">
             Back to Home
           </button>

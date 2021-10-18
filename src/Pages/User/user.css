@@ -1,0 +1,14 @@
+@import url("../../App.css");
+input {
+  background: var(--lt) !important;
+  border: 2px solid transparent;
+  outline: none;
+  width: 100%;
+}
+input:focus {
+  border: 2px solid var(--primary);
+}
+/* rounded pill border */
+.pill-border {
+  border: 2px solid var(--secondary);
+}

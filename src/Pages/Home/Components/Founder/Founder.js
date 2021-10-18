@@ -22,7 +22,7 @@ const Founder = () => {
               >
                 <div>
                   <h4 className="fw-bold ls-2">MD. Yusuf Rahman</h4>
-                  <small className="ls-1 lh-base">
+                  <small className="ls-1 lh-base mb-3">
                     “When I was a child, there was not even a single hospital in
                     this area. This Hospital was my childhood dream and now it
                     is here to provide you best services for low cost.”

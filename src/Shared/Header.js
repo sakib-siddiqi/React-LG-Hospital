@@ -1,10 +1,9 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-
 const Header = () => {
   return (
-    <Navbar bg="white" expand="lg">
+    <Navbar expand="lg" className="sticky-top glass-header">
       <Container>
         <Navbar.Brand as={NavLink} exact to="/">
           <img src="/logo.png" alt="logo" style={{ maxWidth: "35px" }} />
