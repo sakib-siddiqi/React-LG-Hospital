@@ -27,17 +27,12 @@
   {
     "title": "Heart Care",
     "details": "You will get Heart Support From home . You will get your products  on time. you can return your products for any kind of problems done by us.",
-    "img": "/Images/Services/eye-care.png"
-  },
-  {
-    "title": "Eyes Care",
-    "details": "You will get Eyes Support From home . You will get your products  on time. you can return your products for any kind of problems done by us.",
-    "img": "/Images/Services/baby-care.png"
+    "img": "/Images/Services/heart-care.png"
   },
   {
     "title": "Rehabilitation Care",
     "details": "You will get Rehabilitation Support From home . You will get your products  on time. you can return your products for any kind of problems done by us.",
-    "img": "/Images/Services/baby-care.png"
+    "img": "/Images/Services/rehabilitation-care.png"
   },
   {
     "title": "Ambulance",

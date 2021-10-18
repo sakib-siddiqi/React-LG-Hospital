@@ -9,6 +9,7 @@
   --danger: #ff5c58;
   --secondary: #696398;
   --light: #fff;
+  --lt: #7868e61a;
   /* shadow */
   --shadow: 0px 10px 25px -5px rgba(12, 0, 98, 0.1);
   --shadow-sm: 0px 5px 20px rgba(12, 0, 98, 0.1);
@@ -23,6 +24,7 @@
 /* ---------- */
 * {
   font-family: "Inter", sans-serif !important;
+  transition: all 0.2s;
 }
 a {
   text-decoration: none !important;
@@ -62,9 +64,11 @@ html {
   letter-spacing: var(--spacing-2);
 }
 .btn-outline-primary {
+  background: var(--lt) !important;
   border: 2px solid var(--primary) !important;
   color: var(--primary) !important;
   letter-spacing: var(--spacing-2);
+  font-weight: 600;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:active {
@@ -84,9 +88,15 @@ html {
 }
 .product-card {
   box-shadow: var(--card-shadow) !important;
+  transition: all 0.2s;
 }
+
 .product-card:hover {
   box-shadow: var(--card-hover-shadow) !important;
+}
+.product-card img {
+  aspect-ratio: 16/9;
+  object-fit: contain;
 }
 /* shadow */
 .shadow {
@@ -125,4 +135,10 @@ html {
   content: "";
   border-radius: 1000px;
   background: var(--primary);
+}
+.text-dotted {
+  display: block !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
