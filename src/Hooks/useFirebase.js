@@ -30,6 +30,7 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         setUser(result.user);
+        setError("");
       })
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
@@ -40,6 +41,7 @@ const useFirebase = () => {
       .then((res) => {
         updateProfile(auth.currentUser, { displayName: userName }).then(() => {
           setUser(res.user);
+          setError("");
         });
       })
       .catch((err) => setError(err.code))
@@ -50,6 +52,7 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, userEmail, userPassword)
       .then((res) => {
         setUser(res.user);
+        setError("");
       })
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
@@ -59,6 +62,7 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         setUser({});
+        setError("");
       })
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
@@ -82,6 +86,7 @@ const useFirebase = () => {
       } else {
         setUser({});
       }
+      setError("");
       setLoading(false);
     });
   }, []);
