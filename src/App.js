@@ -1,8 +1,8 @@
 import React from "react";
+import { Container, Spinner } from "react-bootstrap";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthProvider";
-import useAuth from "./Hooks/useAuth";
 import useFirebase from "./Hooks/useFirebase";
 import NotFound from "./Pages/404/NotFound";
 import About from "./Pages/About/About";
@@ -14,11 +14,21 @@ import Services from "./Pages/Services/Services";
 import ServiceSingle from "./Pages/Services/ServiceSingle";
 import Login from "./Pages/User/Login";
 import Signup from "./Pages/User/Signup";
+import Center from "./Shared/Components/Center";
 import Footer from "./Shared/Footer";
 import Header from "./Shared/Header";
 import PrivateRoute from "./Shared/PrivateRoute";
 function App() {
-  const { user } = useFirebase();
+  const { user, loading } = useFirebase();
+  if (loading) {
+    return (
+      <Container>
+        <Center className="vh-100">
+          <Spinner animation="border" variant="primary" />
+        </Center>
+      </Container>
+    );
+  }
   return (
     <AuthProvider>
       <BrowserRouter>

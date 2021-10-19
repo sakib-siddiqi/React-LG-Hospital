@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import GoogleSignin from "./Components/GoogleSignin";
 import { useHistory } from "react-router";
 import "./user.css";
 const Login = () => {
-  const { user, handleGoogleSignin, handleEmailPasswordSignin } = useAuth();
+  const { error, handleGoogleSignin, handleEmailPasswordSignin } = useAuth();
   const [userData, setUserData] = useState({ email: "", password: "" });
-  console.log(user);
   const history = useHistory();
   return (
     <Container className="my-5">
@@ -67,6 +66,7 @@ const Login = () => {
                 <Link to="/signup" className="text-primary">
                   Create an account .
                 </Link>
+                {error}
               </form>
               {/* google Signin */}
               <GoogleSignin handleSignin={handleGoogleSignin} />
