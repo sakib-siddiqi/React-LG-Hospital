@@ -8,7 +8,6 @@ const ServiceSingle = () => {
   const { services } = useServices();
   const { findTitle } = useParams();
   const service = services.find((service) => service.title === findTitle);
-  console.log(findTitle);
   return (
     <Container className="py-5">
       <Row xs={1} md={2} className="my-5 flex-column-reverse  flex-md-row">

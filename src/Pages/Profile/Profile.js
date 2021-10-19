@@ -4,9 +4,9 @@ import "./profile.css";
 import { FaUserCog } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import { useHistory } from "react-router";
+import Center from "../../Shared/Components/Center";
 const Profile = () => {
-  const { user, handleSignOut } = useAuth();
-  console.log(user);
+  const { user, handleSignOut, handleDeleteUser } = useAuth();
   const history = useHistory();
   return (
     <Container className="py-5" id="profile">
@@ -46,6 +46,17 @@ const Profile = () => {
               </Col>
             </Row>
           </Card>
+          <Center className="mt-5">
+            <button
+              onClick={() => {
+                handleDeleteUser();
+                history.push("/");
+              }}
+              className="py-2 px-4 btn  btn-outline-danger btn ls-2 fw-bold"
+            >
+              Delete Account
+            </button>
+          </Center>
         </Col>
       </Row>
     </Container>

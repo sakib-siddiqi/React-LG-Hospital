@@ -20,6 +20,11 @@ const Login = () => {
                 alt="logo2.png"
                 className="img-fluid mx-auto mb-4 d-block"
               />
+              {error && (
+                <p className="text-danger text-center border border-1 border-danger rounded-3 mt-3 p-2">
+                  {error}
+                </p>
+              )}
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -66,7 +71,6 @@ const Login = () => {
                 <Link to="/signup" className="text-primary">
                   Create an account .
                 </Link>
-                <p className="text-danger text-center p-2">{error}</p>
               </form>
               {/* google Signin */}
               <GoogleSignin handleSignin={handleGoogleSignin} />

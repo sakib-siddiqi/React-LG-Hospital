@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  deleteUser,
   signOut,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -62,6 +63,16 @@ const useFirebase = () => {
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
+  const handleDeleteUser = () => {
+    setLoading(true);
+    deleteUser(auth.currentUser)
+      .then(() => {
+        setUser({});
+        setError("");
+      })
+      .catch((err) => setError(err.code))
+      .finally(() => setLoading(false));
+  };
   //   auth state change
   useEffect(() => {
     setLoading(true);
@@ -87,6 +98,7 @@ const useFirebase = () => {
     handleEmailPasswordSignup,
     handleEmailPasswordSignin,
     handleSignOut,
+    handleDeleteUser,
   };
 };
 export default useFirebase;

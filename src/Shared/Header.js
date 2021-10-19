@@ -4,9 +4,9 @@ import { Link, NavLink } from "react-router-dom";
 import { FaUserCog } from "react-icons/fa";
 import "./avtar.css";
 import useAuth from "../Hooks/useAuth";
+import { IoLogOut } from "react-icons/io5";
 const Header = () => {
-  const { user } = useAuth();
-  console.log(user);
+  const { user, handleSignOut } = useAuth();
   return (
     <Navbar expand="lg" className="sticky-top glass-header">
       <Container>
@@ -46,13 +46,25 @@ const Header = () => {
               About
             </Nav.Link>
             {user.uid ? (
-              <Link
-                to="/profile"
-                className="avtar px-3 py-2 rounded-pill center fw-bold ls-1 text-dotted"
-              >
-                {user.displayName ? user.displayName.split(" ")[0] : "Profile"}
-                <FaUserCog className="ms-2" />
-              </Link>
+              <div className="center">
+                <Link
+                  to="/profile"
+                  className="avtar px-3 py-2 rounded-pill center fw-bold ls-1 text-dotted"
+                >
+                  {user.displayName
+                    ? user.displayName.split(" ")[0]
+                    : "Profile"}
+                  <FaUserCog className="ms-2" />
+                </Link>
+                <button
+                  onClick={() => {
+                    handleSignOut();
+                  }}
+                  className="py-1 px-2 ms-2 text-dark btn ls-2 fw-bold btn-outline-primary"
+                >
+                  <IoLogOut />
+                </button>
+              </div>
             ) : (
               <>
                 <Nav.Link

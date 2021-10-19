@@ -62,6 +62,9 @@ html {
 .bg-primary {
   background: var(--primary) !important;
 }
+.bg-danger {
+  background: var(--danger) !important;
+}
 .bg-dark {
   background: var(--dark) !important;
 }
