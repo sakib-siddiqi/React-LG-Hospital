@@ -5,7 +5,8 @@ import "./user.css";
 import GoogleSignin from "./Components/GoogleSignin";
 import useAuth from "../../Hooks/useAuth";
 const Signup = () => {
-  const { user, handleGoogleSignin, handleEmailPasswordSignup } = useAuth();
+  const { user, error, handleGoogleSignin, handleEmailPasswordSignup } =
+    useAuth();
   console.log(user);
   const history = useHistory();
   const [userData, setUserData] = useState({
@@ -88,8 +89,9 @@ const Signup = () => {
                 <Link to="/login" className="text-primary">
                   I have an account .
                 </Link>
-              </form>{" "}
-              <GoogleSignin handleSignin={() => handleGoogleSignin} />
+                <p className="text-danger text-center p-2">{error}</p>
+              </form>
+              <GoogleSignin handleSignin={handleGoogleSignin} />
             </Card.Body>
           </Card>
         </Col>

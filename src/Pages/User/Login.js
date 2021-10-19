@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import GoogleSignin from "./Components/GoogleSignin";
@@ -66,7 +66,7 @@ const Login = () => {
                 <Link to="/signup" className="text-primary">
                   Create an account .
                 </Link>
-                {error}
+                <p className="text-danger text-center p-2">{error}</p>
               </form>
               {/* google Signin */}
               <GoogleSignin handleSignin={handleGoogleSignin} />

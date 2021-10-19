@@ -30,6 +30,7 @@ const useFirebase = () => {
       .then((result) => {
         setUser(result.user);
       })
+      .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
   const handleEmailPasswordSignup = (userName, userEmail, userPassword) => {
@@ -40,6 +41,7 @@ const useFirebase = () => {
           setUser(res.user);
         });
       })
+      .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
   const handleEmailPasswordSignin = (userEmail, userPassword) => {
@@ -48,6 +50,7 @@ const useFirebase = () => {
       .then((res) => {
         setUser(res.user);
       })
+      .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
   const handleSignOut = () => {
@@ -56,6 +59,7 @@ const useFirebase = () => {
       .then(() => {
         setUser({});
       })
+      .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
   //   auth state change
