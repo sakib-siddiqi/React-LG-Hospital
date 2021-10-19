@@ -25,6 +25,11 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  /*
+  ----------------
+  google signin
+  ----------------
+  */
   const handleGoogleSignin = () => {
     setLoading(true);
     signInWithPopup(auth, googleProvider)
@@ -35,6 +40,11 @@ const useFirebase = () => {
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
+  /*
+  ----------------
+email password signup
+  ----------------
+  */
   const handleEmailPasswordSignup = (userName, userEmail, userPassword) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
@@ -47,6 +57,11 @@ const useFirebase = () => {
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
+  /*
+  ----------------
+email password signin
+  ----------------
+  */
   const handleEmailPasswordSignin = (userEmail, userPassword) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, userEmail, userPassword)
@@ -57,6 +72,11 @@ const useFirebase = () => {
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
+  /*
+  ----------------
+sign out
+  ----------------
+  */
   const handleSignOut = () => {
     setLoading(true);
     signOut(auth)
@@ -67,6 +87,11 @@ const useFirebase = () => {
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
+  /*
+  ----------------
+delete account
+  ----------------
+  */
   const handleDeleteUser = () => {
     setLoading(true);
     deleteUser(auth.currentUser)
