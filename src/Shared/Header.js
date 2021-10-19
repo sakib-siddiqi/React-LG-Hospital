@@ -3,9 +3,10 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { FaUserCog } from "react-icons/fa";
 import "./avtar.css";
-import useFirebase from "../Hooks/useFirebase";
+import useAuth from "../Hooks/useAuth";
 const Header = () => {
-  const { user } = useFirebase();
+  const { user } = useAuth();
+  console.log(user);
   return (
     <Navbar expand="lg" className="sticky-top glass-header">
       <Container>

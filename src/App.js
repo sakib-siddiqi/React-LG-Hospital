@@ -1,6 +1,8 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
+import AuthProvider from "./Context/AuthProvider";
+import useAuth from "./Hooks/useAuth";
 import useFirebase from "./Hooks/useFirebase";
 import NotFound from "./Pages/404/NotFound";
 import About from "./Pages/About/About";
@@ -14,25 +16,38 @@ import Login from "./Pages/User/Login";
 import Signup from "./Pages/User/Signup";
 import Footer from "./Shared/Footer";
 import Header from "./Shared/Header";
+import PrivateRoute from "./Shared/PrivateRoute";
 function App() {
   const { user } = useFirebase();
   return (
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/services" component={Services} />
-        <Route path="/services/:findTitle" component={ServiceSingle} />
-        <Route path="/success" component={OrderDone} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/about" component={About} />
-        <Route path="/covid19" component={Covid} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-      <Footer />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/services" component={Services} />
+          <PrivateRoute path="/services/:findTitle">
+            <ServiceSingle />
+          </PrivateRoute>
+          <PrivateRoute path="/success">
+            <OrderDone />
+          </PrivateRoute>
+          <Route path="/login">
+            {!user.uid ? <Login /> : <Redirect to="/profile" />}
+          </Route>
+          <Route path="/signup">
+            {!user.uid ? <Signup /> : <Redirect to="/profile" />}
+          </Route>
+          <PrivateRoute path="/profile">
+            <Profile />
+          </PrivateRoute>
+          <Route path="/about" component={About} />
+          <Route path="/covid19" component={Covid} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 export default App;

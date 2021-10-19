@@ -53,7 +53,9 @@ const useFirebase = () => {
   };
   const handleSignOut = () => {
     return signOut(auth)
-      .then(() => setUser({}))
+      .then(() => {
+        setUser({});
+      })
       .catch((err) => console.log(err.code));
   };
   //   auth state change

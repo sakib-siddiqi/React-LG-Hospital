@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Row, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Center from "../../Shared/Components/Center";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import "./user.css";
-import { FcGoogle } from "react-icons/fc";
 import GoogleSignin from "./Components/GoogleSignin";
-import useFirebase from "../../Hooks/useFirebase";
+import useAuth from "../../Hooks/useAuth";
 const Signup = () => {
-  const { user, handleGoogleSignin, handleEmailPasswordSignup } = useFirebase();
+  const { user, handleGoogleSignin, handleEmailPasswordSignup } = useAuth();
   console.log(user);
+  const history = useHistory();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -30,6 +29,7 @@ const Signup = () => {
                   e.preventDefault();
                   const { name, email, password } = userData;
                   handleEmailPasswordSignup(name, email, password);
+                  history.push("/profile");
                   // clearing input values
                   setUserData({ name: "", email: "", password: "" });
                 }}
@@ -89,7 +89,7 @@ const Signup = () => {
                   I have an account .
                 </Link>
               </form>{" "}
-              <GoogleSignin handleSignin={handleGoogleSignin} />
+              <GoogleSignin handleSignin={() => handleGoogleSignin} />
             </Card.Body>
           </Card>
         </Col>

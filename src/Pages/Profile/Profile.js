@@ -2,10 +2,12 @@ import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import "./profile.css";
 import { FaUserCog } from "react-icons/fa";
-import useFirebase from "../../Hooks/useFirebase";
+import useAuth from "../../Hooks/useAuth";
+import { useHistory } from "react-router";
 const Profile = () => {
-  const { user, handleSignOut } = useFirebase();
+  const { user, handleSignOut } = useAuth();
   console.log(user);
+  const history = useHistory();
   return (
     <Container className="py-5" id="profile">
       <Row className="justify-content-center mt-5">
@@ -33,7 +35,10 @@ const Profile = () => {
                 </div>
                 <p className="text-light h5 ls-1">{user.email}</p>
                 <button
-                  onClick={handleSignOut}
+                  onClick={() => {
+                    handleSignOut();
+                    history.push("/");
+                  }}
                   className="py-2 px-4 bg-light text-dark btn ls-2 fw-bold"
                 >
                   Logout
