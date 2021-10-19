@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Row, Nav } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Center from "../../Shared/Components/Center";
+import useFirebase from "../../Hooks/useFirebase";
+import GoogleSignin from "./Components/GoogleSignin";
 import "./user.css";
-import { FcGoogle } from "react-icons/fc";
 const Login = () => {
+  const { user, handleGoogleSignin, handleEmailPasswordSignin } = useFirebase();
   const [userData, setUserData] = useState({ email: "", password: "" });
+  console.log(user);
   return (
     <Container className="my-5">
       <Row className="justify-content-center">
@@ -13,14 +15,14 @@ const Login = () => {
           <Card className="shadow py-4">
             <Card.Body>
               <img
-                src="/logo2.png"
+                src="/Logo2.png"
                 alt="logo2.png"
                 className="img-fluid mx-auto mb-4 d-block"
               />
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  console.log(userData.email, userData.password);
+                  handleEmailPasswordSignin(userData.email, userData.password);
                   // clearing input values
                   setUserData({ email: "", password: "" });
                 }}
@@ -62,12 +64,9 @@ const Login = () => {
                 <Link to="/signup" className="text-primary">
                   Create an account .
                 </Link>
-                <Center className="mt-4">
-                  <Nav.Link className="rounded-pill py-1 px-3 text-primary ls-2 pill-border">
-                    <FcGoogle /> <small>Google Signin</small>
-                  </Nav.Link>
-                </Center>
               </form>
+              {/* google Signin */}
+              <GoogleSignin handleSignin={handleGoogleSignin} />
             </Card.Body>
           </Card>
         </Col>

@@ -1,0 +1,8 @@
+@import url("../App.css");
+.avtar {
+  color: var(--light);
+  background: var(--primary);
+}
+.avtar:hover {
+  color: rgb(230, 241, 255) !important;
+}

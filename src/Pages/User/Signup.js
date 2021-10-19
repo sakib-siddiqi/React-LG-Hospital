@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 import Center from "../../Shared/Components/Center";
 import "./user.css";
 import { FcGoogle } from "react-icons/fc";
+import GoogleSignin from "./Components/GoogleSignin";
+import useFirebase from "../../Hooks/useFirebase";
 const Signup = () => {
+  const { user, handleGoogleSignin, handleEmailPasswordSignup } = useFirebase();
+  console.log(user);
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -17,7 +21,7 @@ const Signup = () => {
           <Card className="shadow py-4">
             <Card.Body>
               <img
-                src="/logo2.png"
+                src="/Logo2.png"
                 alt="logo2.png"
                 className="img-fluid mx-auto mb-4 d-block"
               />
@@ -25,7 +29,7 @@ const Signup = () => {
                 onSubmit={(e) => {
                   e.preventDefault();
                   const { name, email, password } = userData;
-                  console.log(name, email, password);
+                  handleEmailPasswordSignup(name, email, password);
                   // clearing input values
                   setUserData({ name: "", email: "", password: "" });
                 }}
@@ -84,12 +88,8 @@ const Signup = () => {
                 <Link to="/login" className="text-primary">
                   I have an account .
                 </Link>
-                <Center className="mt-4">
-                  <Nav.Link className="rounded-pill py-1 px-3 text-primary ls-2 pill-border">
-                    <FcGoogle /> <small>Google Signin</small>
-                  </Nav.Link>
-                </Center>
-              </form>
+              </form>{" "}
+              <GoogleSignin handleSignin={handleGoogleSignin} />
             </Card.Body>
           </Card>
         </Col>

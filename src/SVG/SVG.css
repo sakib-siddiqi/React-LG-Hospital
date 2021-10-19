@@ -6,7 +6,6 @@
 #cloud_3,
 #cloud_4 {
   transform-box: fill-box;
-  transition: all 0.2s;
 }
 #tic {
   animation: tic 0.5s ease-in 0s 1 forwards;

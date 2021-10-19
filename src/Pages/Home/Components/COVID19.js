@@ -1,6 +1,7 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Nav } from "react-bootstrap";
 import { AiFillAlert } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 const COVID19 = () => {
   return (
     <Container
@@ -16,9 +17,13 @@ const COVID19 = () => {
       <small className="text-secondary ls-1 d-block mb-4">
         We are providign you COVID19 care service with low cost.
       </small>
-      <button className="btn btn-primary py-2 px-4 mb-3 shadow">
+      <Nav.Link
+        as={NavLink}
+        to="/covid19"
+        className="btn btn-primary py-2 px-4 mb-3 shadow d-inline-block"
+      >
         Take Covid Service
-      </button>
+      </Nav.Link>
     </Container>
   );
 };
