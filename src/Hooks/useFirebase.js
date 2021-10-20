@@ -48,11 +48,13 @@ email password signup
   const handleEmailPasswordSignup = (userName, userEmail, userPassword) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
-      .then((res) => {
-        updateProfile(auth.currentUser, { displayName: userName }).then(() => {
-          setUser(res.user);
-          setError("");
-        });
+      .then(() => {
+        return updateProfile(auth.currentUser, { displayName: userName }).then(
+          (res) => {
+            setUser(res.user);
+            setError("");
+          }
+        );
       })
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
